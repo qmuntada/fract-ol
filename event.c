@@ -29,18 +29,22 @@ int		mouse2(int button, int x, int y, t_env *e)
 	printf("button %d x %d y %d\n", button, x, y);
 	x1 = scaledx(e, x);
 	y1 = scaledy(e, y);
-	if (button == 4)
+	printf("%f %f\n", x1, y1);
+	if (button == 4 || button == 1)
 	{
 		e->xbotM = x1 + ((e->xbotM - x1) / 2);
 		e->xtopM = e->xtopM + ((x1 - e->xtopM) / 2);
 		e->ybotM = y1 + ((e->ybotM - y1) / 2);
 		e->ytopM = e->ytopM + ((y1 - e->ytopM) / 2);
 	}
-	if (button == 5)
+	else if (button == 5 || button == 3)
 	{
-		;
+		e->xbotM += e->xbotM;
+		e->xtopM += e->xtopM;
+		e->ybotM += e->ybotM;
+		e->ytopM += e->ytopM;
 	}
-	e->iter += 10;
+	e->iter += 1;
 	expose_hook(e);
 	return (1);
 }

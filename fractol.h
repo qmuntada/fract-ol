@@ -51,10 +51,10 @@ typedef struct			s_env
 	int					iter;
 	int					x;
 	int					y;
-	double				xbotM;
-	double				xtopM;
-	double				ybotM;
-	double				ytopM;
+	long double			xbotM;
+	long double			xtopM;
+	long double			ybotM;
+	long double			ytopM;
 }						t_env;
 
 void	init_env(t_env *e, int ac, char **av);
@@ -64,8 +64,8 @@ int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	mandelbrot(t_env *e);
 void	pixel_put(t_env *e);
-double	scaledx(t_env *e, int x);
-double	scaledy(t_env *e, int y);
+long double	scaledx(t_env *e, int x);
+long double	scaledy(t_env *e, int y);
 int		expose_hook(t_env *e);
 
 #endif

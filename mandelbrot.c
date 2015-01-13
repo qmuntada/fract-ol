@@ -6,27 +6,27 @@ int		palette(int x)
 	return (x);
 }
 
-double scaledy(t_env *e, int y)
+long double scaledy(t_env *e, int y)
 {
-	double dy;
+	long double dy;
 
 	dy = (((e->ytopM - e->ybotM) * y) / e->img.height) + e->ybotM;
 	return (dy);
 }
 
-double scaledx(t_env *e, int x)
+long double scaledx(t_env *e, int x)
 {
-	double dx;
+	long double dx;
 
 	dx = (((e->xtopM - e->xbotM) * x) / e->img.width) + e->xbotM;
 	return (dx);
 }
 
-void		calculate(t_env *e, double x0, double y0)
+void		calculate(t_env *e, long double x0, long double y0)
 {
-	double		x;
-	double		y;
-	double		xtemp;
+	long double		x;
+	long double		y;
+	long double		xtemp;
 	int			iteration;
 
 	x = 0.0;
