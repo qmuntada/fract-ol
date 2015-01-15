@@ -28,6 +28,13 @@
 # define HEIGHT 1000
 
 # define ESC 65307
+# define SPACE 32
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define LEFT 65361
+# define RIGHT 65363
 
 typedef struct			s_img
 {
@@ -51,10 +58,14 @@ typedef struct			s_env
 	int					iter;
 	int					x;
 	int					y;
-	long double			xbotM;
-	long double			xtopM;
-	long double			ybotM;
-	long double			ytopM;
+	int				zoom;
+	double			xbot;
+	double			xtop;
+	double			ybot;
+	double			ytop;
+	double			xs;
+	double			ys;
+	double			tol;
 }						t_env;
 
 void	init_env(t_env *e, int ac, char **av);
@@ -63,9 +74,12 @@ int		mouse2(int button, int x, int y, t_env *e);
 int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	mandelbrot(t_env *e);
+void	julia(t_env *e);
+void	newton(t_env *e);
 void	pixel_put(t_env *e);
-long double	scaledx(t_env *e, int x);
-long double	scaledy(t_env *e, int y);
+double	scaledx(t_env *e, int x);
+double	scaledy(t_env *e, int y);
+int		palette(int x, int maxiter);
 int		expose_hook(t_env *e);
 
 #endif
