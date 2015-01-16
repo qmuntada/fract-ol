@@ -15,7 +15,7 @@ void		Jcalculate(t_env *e, double x0, double y0)
 		x0 = x1 * x1 - y1 * y1 + e->xs;
 		y0 = 2 * x1 * y1 + e->ys;
 	}
-	e->color = palette(i, e->iter);
+	e->color = palette(e, i);
 	pixel_put(e);
 }
 

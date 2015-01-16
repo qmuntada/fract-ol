@@ -5,8 +5,8 @@ int		key_press(int keycode, t_env *e)
 {
 	double	tmp;
 
-	if (keycode == SPACE)
-		expose_hook(e);
+	if (keycode == T)
+		e->theme += (e->theme == 5 ? -5 : 1);
 	else if (keycode == W || keycode == S)
 	{
 		tmp = (e->ytop - e->ybot) / 2;

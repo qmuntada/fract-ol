@@ -21,7 +21,7 @@ void		Mcalculate(t_env *e, double x0, double y0)
 		x2 = x * x;
 		y2 = y * y;
 	}
-	e->color = palette(i, e->iter);
+	e->color = palette(e, i);
 	pixel_put(e);
 }
 

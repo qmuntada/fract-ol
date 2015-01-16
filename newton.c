@@ -20,7 +20,7 @@ void		Ncalculate(t_env *e, double x0, double y0)
 		if (x0 * x0 + y0 * y0 < e->tol)
 			w = i;
 	}
-	e->color = palette(255 * w * w / 10 / 10, e->iter);
+	e->color = palette(e, 255 * w * w / 10 / 10);
 	pixel_put(e);
 }
 

@@ -61,4 +61,5 @@ void	init_env(t_env *e, int ac, char **av)
 	e->iter = 10;
 	e->zoom = 0;
 	e->tol = 0.5;
+	e->theme = 0;
 }

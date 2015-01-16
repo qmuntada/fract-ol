@@ -1,13 +1,28 @@
 
 #include "fractol.h"
 
-int		palette(int x, int maxiter)
+# define PHI 1.6180339887
+
+int		dual(int x, int iter, int style)
+{
+	if (x % 2 == 0)
+		x = (pow(256, style) * x) / iter;
+	else
+		x = (pow(128, style) * x) / iter;
+	return (x);
+}
+
+int		palette(t_env *e, int x)
 {
 	int		color;
 
-
-	x = (256 * x) / maxiter;
-	color = x;
+	color = (256 * x) / e->iter;
+	if (e->theme == 1)
+		color *= 256;
+	else if (e->theme == 2)
+		color *= 256 * 256;
+	else if (e->theme >= 3 && e->theme <= 5)
+		color = dual(x, e->iter, e->theme - 2);
 	return (color);
 }
 
