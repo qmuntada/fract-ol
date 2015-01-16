@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/16 16:33:59 by qmuntada          #+#    #+#             */
+/*   Updated: 2015/01/16 16:44:32 by qmuntada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-void		Mcalculate(t_env *e, double x0, double y0)
+void	calculate_m(t_env *e, double x0, double y0)
 {
 	double		x;
 	double		y;
@@ -32,6 +43,6 @@ void	mandelbrot(t_env *e)
 	{
 		e->x = -1;
 		while ((e->x += 1) < e->img.height)
-			Mcalculate(e, scaledx(e, e->x), scaledy(e, e->y));
+			calculate_m(e, scaledx(e, e->x), scaledy(e, e->y));
 	}
 }

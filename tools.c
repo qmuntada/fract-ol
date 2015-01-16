@@ -1,9 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/16 16:34:09 by qmuntada          #+#    #+#             */
+/*   Updated: 2015/01/16 16:45:09 by qmuntada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-# define PHI 1.6180339887
-
-int		dual(int x, int iter, int style)
+int			dual(int x, int iter, int style)
 {
 	if (x % 2 == 0)
 		x = (pow(256, style) * x) / iter;
@@ -12,7 +21,7 @@ int		dual(int x, int iter, int style)
 	return (x);
 }
 
-int		palette(t_env *e, int x)
+int			palette(t_env *e, int x)
 {
 	int		color;
 
@@ -26,7 +35,7 @@ int		palette(t_env *e, int x)
 	return (color);
 }
 
-double scaledy(t_env *e, int y)
+double		scaledy(t_env *e, int y)
 {
 	double dy;
 
@@ -34,7 +43,7 @@ double scaledy(t_env *e, int y)
 	return (dy);
 }
 
-double scaledx(t_env *e, int x)
+double		scaledx(t_env *e, int x)
 {
 	double dx;
 

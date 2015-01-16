@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/16 16:33:51 by qmuntada          #+#    #+#             */
+/*   Updated: 2015/01/16 16:44:36 by qmuntada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-void		Jcalculate(t_env *e, double x0, double y0)
+void	calculate_j(t_env *e, double x0, double y0)
 {
 	double		x1;
 	double		y1;
@@ -26,6 +37,6 @@ void	julia(t_env *e)
 	{
 		e->x = -1;
 		while ((e->x += 1) < e->img.height)
-			Jcalculate(e, scaledx(e, e->x), scaledy(e, e->y));
+			calculate_j(e, scaledx(e, e->x), scaledy(e, e->y));
 	}
 }

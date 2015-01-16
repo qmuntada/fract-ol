@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   newton.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/16 16:34:05 by qmuntada          #+#    #+#             */
+/*   Updated: 2015/01/16 16:44:28 by qmuntada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-void		Ncalculate(t_env *e, double x0, double y0)
+void	calculate_n(t_env *e, double x0, double y0)
 {
 	int		i;
 	double	xx;
 	double	yy;
-	double	w;
+	double	i2;
 
 	i = 0;
+	i2 = 0;
 	while (++i < e->iter)
 	{
 		xx = 2 * x0 / 3 - (x0 * x0 - y0 * y0) / (x0 * x0 + y0 * y0) \
@@ -17,10 +29,10 @@ void		Ncalculate(t_env *e, double x0, double y0)
 		/ (x0 * x0 + y0 * y0) / 3;
 		x0 = xx;
 		y0 = yy;
-		if (x0 * x0 + y0 * y0 < e->tol)
-			w = i;
+		if (x0 * x0 + y0 * y0 < (e->xs / e->img.width))
+			i2 = i;
 	}
-	e->color = palette(e, 255 * w * w / 10 / 10);
+	e->color = palette(e, i2);
 	pixel_put(e);
 }
 
@@ -31,6 +43,6 @@ void	newton(t_env *e)
 	{
 		e->x = -1;
 		while ((e->x += 1) < e->img.height)
-			Ncalculate(e, scaledx(e, e->x), scaledy(e, e->y));
+			calculate_n(e, scaledx(e, e->x), scaledy(e, e->y));
 	}
 }
