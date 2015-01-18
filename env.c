@@ -35,6 +35,7 @@ int		frac_type(int ac, char **av)
 	else if (av[1][0] == 'N')
 		return (3);
 	error_arg(1);
+	return (0);
 }
 
 void	init_sval(t_env *e)
@@ -59,6 +60,7 @@ void	init_sval(t_env *e)
 		e->xtop = 4;
 		e->ybot = -4;
 		e->ytop = 4;
+		e->xs = e->img.width / 2;
 	}
 }
 
@@ -70,13 +72,13 @@ void	init_env(t_env *e, int ac, char **av)
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, e->img.width, e->img.height, "Fract'ol");
 	e->img.img_ptr = mlx_new_image(e->mlx, e->img.width, e->img.height);
-	e->img.img = mlx_get_data_addr(e->img.img_ptr, &e->img.bpp, \
+	e->img.img = (unsigned char *)mlx_get_data_addr(e->img.img_ptr, &e->img.bpp, \
 			&e->img.sl, &e->img.endian);
-	init_sval(e);
 	e->xs = 0;
 	e->ys = 0;
-	e->iter = 10;
+	e->iter = 20;
 	e->zoom = 0;
 	e->tol = 0.5;
 	e->theme = 0;
+	init_sval(e);
 }

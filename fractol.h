@@ -36,6 +36,9 @@
 # define T 116
 # define LEFT 65361
 # define RIGHT 65363
+# define UP 65362
+# define DOWN 65364
+
 
 typedef struct			s_img
 {

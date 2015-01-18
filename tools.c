@@ -31,7 +31,7 @@ int			palette(t_env *e, int x)
 	else if (e->theme == 2)
 		color *= 256 * 256;
 	else if (e->theme >= 3 && e->theme <= 5)
-		color = dual(x, e->iter, e->theme - 2);
+		color = dual(x, e->iter, e->theme - 1);
 	return (color);
 }
 

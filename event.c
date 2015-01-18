@@ -18,20 +18,20 @@ int		key_press(int keycode, t_env *e)
 
 	if (keycode == T)
 		e->theme += (e->theme == 5 ? -5 : 1);
-	else if (keycode == W || keycode == S)
+	else if (keycode == UP || keycode == DOWN)
 	{
-		tmp = (e->ytop - e->ybot) / 2;
-		e->ybot += (keycode == S ? tmp : -tmp);
-		e->ytop += (keycode == S ? tmp : -tmp);
+		tmp = (e->ytop - e->ybot) / 4;
+		e->ybot += (keycode == DOWN ? tmp : -tmp);
+		e->ytop += (keycode == DOWN ? tmp : -tmp);
 	}
-	else if (keycode == A || keycode == D)
+	else if (keycode == LEFT || keycode == RIGHT)
 	{
-		tmp = (e->xtop - e->xbot) / 2;
-		e->xbot += (keycode == D ? tmp : -tmp);
-		e->xtop += (keycode == D ? tmp : -tmp);
+		tmp = (e->xtop - e->xbot) / 4;
+		e->xbot += (keycode == RIGHT ? tmp : -tmp);
+		e->xtop += (keycode == RIGHT ? tmp : -tmp);
 	}
-	else if (keycode == RIGHT || keycode == LEFT && e->iter > 1)
-		e->iter += (keycode == RIGHT ? 1 : -1);
+	else if ((e->iter > 1 && keycode == A) || keycode == D)
+		e->iter += (keycode == D ? 1 : -1);
 	expose_hook(e);
 	return (1);
 }
