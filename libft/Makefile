@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra
 SOURCE = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		 ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
 		 ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
@@ -26,17 +26,20 @@ SOURCE = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		 ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_swap.c \
 		 ft_max.c ft_islower.c ft_isupper.c ft_sqrt.c ft_power.c \
 		 ft_btw.c ft_isblank.c ft_lstpushback.c ft_lstlen.c ft_strcf.c \
-		 ft_lstclear.c ft_lstnclear.c get_next_line.c \
+		 ft_lstclear.c ft_lstnclear.c get_next_line.c ft_strconc.c \
+		 ft_clamp.c ft_mix.c ft_smoothstep.c \
 
 OBJ = $(SOURCE:.c=.o)
 
-.PHONY : all clean fclean re norme
+.PHONY : all clean fclean re
 
 all : $(NAME)
 
 $(NAME) :  $(OBJ)
-	@echo "Creating archive $@ ..."
-	@export result=`ar rcs $@ $(OBJ) 2>&1` ; \
+	@echo "Compiling $(NAME)..."
+	@gcc $(CFLAGS) -c $(SOURCE)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean :
 	@echo "Removing object files ..."
@@ -47,6 +50,3 @@ fclean : clean
 	@rm -rf $(NAME)
 
 re : fclean all
-
-norme : 
-	norminette $(SOURCE)
