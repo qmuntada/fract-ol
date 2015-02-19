@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:47:53 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:48:53 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/19 19:00:17 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 # define RIGHT 65363
 # define UP 65362
 # define DOWN 65364
-
 
 typedef struct			s_img
 {

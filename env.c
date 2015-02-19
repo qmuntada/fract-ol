@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:43 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:42:02 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/19 18:59:59 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	init_env(t_env *e, int ac, char **av)
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, e->img.width, e->img.height, "Fract'ol");
 	e->img.img_ptr = mlx_new_image(e->mlx, e->img.width, e->img.height);
-	e->img.img = (unsigned char *)mlx_get_data_addr(e->img.img_ptr, &e->img.bpp, \
-			&e->img.sl, &e->img.endian);
+	e->img.img = (unsigned char *)mlx_get_data_addr(e->img.img_ptr, \
+				&e->img.bpp, &e->img.sl, &e->img.endian);
 	e->xs = 0;
 	e->ys = 0;
 	e->iter = 20;
