@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:34:09 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:45:09 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/19 19:05:26 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			dual(int x, int iter, int style)
 int			palette(t_env *e, int x)
 {
 	int		color;
-
 	color = (256 * x) / e->iter;
 	if (e->theme == 1)
 		color *= 256;

@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:59 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:44:32 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/19 19:01:47 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	calculate_m(t_env *e, double x0, double y0)
 	x2 = x * x;
 	y2 = y * y;
 	i = -1;
-	while ((x2 + y2) < 4 && ++i < e->iter)
+	while (++i < e->iter && (x2 + y2) < 4)
 	{
 		y = 2 * x * y + y0;
 		x = x2 - y2 + x0;

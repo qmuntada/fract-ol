@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:51 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:44:36 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/19 19:01:30 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	calculate_j(t_env *e, double x0, double y0)
 	int			i;
 
 	i = -1;
-	while ((x0 + y0) < 4 && ++i < e->iter)
+	while (++i < e->iter && (x0 + y0) < 4)
 	{
 		x1 = x0;
 		y1 = y0;
