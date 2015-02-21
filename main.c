@@ -21,8 +21,6 @@ int		expose_hook(t_env *e)
 	else if (e->ftype == 3)
 		newton(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img.img_ptr, 0, 0);
-	mlx_string_put(e->mlx, e->win, 5, 12, 0xFFFFFF, "Zoom : 2^");
-	mlx_string_put(e->mlx, e->win, 60, 12, 0xFFFFFF, ft_itoa(e->zoom));
 	mlx_string_put(e->mlx, e->win, 5, 24, 0xFFFFFF, "Iterations :");
 	mlx_string_put(e->mlx, e->win, 80, 24, 0xFFFFFF, ft_itoa(e->iter));
 	return (1);

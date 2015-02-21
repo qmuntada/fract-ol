@@ -12,25 +12,24 @@
 
 #include "fractol.h"
 
-int			dual(int x, int iter, int style)
+/*t_vec		dual(int x, int iter, int style)
 {
 	if (x % 2 == 0)
 		x = (pow(256, style) * x) / iter;
 	else
 		x = (pow(128, style) * x) / iter;
 	return (x);
-}
+}*/
 
-int			palette(t_env *e, int x)
+t_vec3		palette(t_env *e, double x)
 {
-	int		color;
-	color = (256 * x) / e->iter;
-	if (e->theme == 1)
-		color *= 256;
-	else if (e->theme == 2)
-		color *= 256 * 256;
-	else if (e->theme >= 3 && e->theme <= 5)
-		color = dual(x, e->iter, e->theme - 1);
+	t_vec3	color;
+
+	color.x = 0.5 + 0.5 * cos(3.0 + x * 0.15 + (e->theme == 0));
+	color.y = 0.5 + 0.5 * cos(3.0 + x * 0.15 + (e->theme == 1));
+	color.z = 0.5 + 0.5 * cos(3.0 + x * 0.15 + (e->theme == 2));
+	//else if (e->theme >= 3 && e->theme <= 5)
+		//color = dual(x, e->iter, e->theme - 1);
 	return (color);
 }
 

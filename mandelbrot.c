@@ -18,20 +18,22 @@ void	calculate_m(t_env *e, double x0, double y0)
 	double		y;
 	double		x2;
 	double		y2;
-	int			i;
+	double		i;
 
-	x = e->xs;
-	y = e->ys;
-	x2 = x * x;
-	y2 = y * y;
-	i = -1;
-	while (++i < e->iter && (x2 + y2) < 4)
+	x = 0.0;
+	y = 0.0;
+	x2 = 0.0;
+	y2 = 0.0;
+	i = -1.0;
+	while (++i < e->iter && (x2 + y2) < e->iter)
 	{
-		y = 2 * x * y + y0;
+		y = 2.0 * x * y + y0;
 		x = x2 - y2 + x0;
 		x2 = x * x;
 		y2 = y * y;
 	}
+	double sco = i - log2(log2(x2 + y2));
+	i = ft_mix(i, sco, 1.0);
 	e->color = palette(e, i);
 	pixel_put(e);
 }
@@ -39,10 +41,10 @@ void	calculate_m(t_env *e, double x0, double y0)
 void	mandelbrot(t_env *e)
 {
 	e->y = -1;
-	while ((e->y += 1) < e->img.width)
+	while ((e->y += 1) < e->img.height)
 	{
 		e->x = -1;
-		while ((e->x += 1) < e->img.height)
+		while ((e->x += 1) < e->img.width)
 			calculate_m(e, scaledx(e, e->x), scaledy(e, e->y));
 	}
 }

@@ -39,10 +39,10 @@ void	calculate_n(t_env *e, double x0, double y0)
 void	newton(t_env *e)
 {
 	e->y = -1;
-	while ((e->y += 1) < e->img.width)
+	while ((e->y += 1) < e->img.height)
 	{
 		e->x = -1;
-		while ((e->x += 1) < e->img.height)
+		while ((e->x += 1) < e->img.width)
 			calculate_n(e, scaledx(e, e->x), scaledy(e, e->y));
 	}
 }

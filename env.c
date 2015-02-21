@@ -76,9 +76,10 @@ void	init_env(t_env *e, int ac, char **av)
 				&e->img.bpp, &e->img.sl, &e->img.endian);
 	e->xs = 0;
 	e->ys = 0;
-	e->iter = 20;
-	e->zoom = 0;
-	e->tol = 0.5;
+	e->iter = 50;
 	e->theme = 0;
+	e->color = (t_vec3){0.0, 0.0, 0.0};
 	init_sval(e);
+	e->xori = e->xbot;
+	e->yori = e->ybot;
 }

@@ -48,10 +48,13 @@ int		key_release(int keycode, t_env *e)
 
 int		mouse(int x, int y, t_env *e)
 {
-	e->xs = scaledx(e, x);
-	e->ys = scaledy(e, y);
-	if (e->ftype == 3)
-		e->xs = x;
+	if (e->xori <= e->xbot && e->yori <= e->ybot)
+	{
+		e->xs = scaledx(e, x);
+		e->ys = scaledy(e, y);
+		if (e->ftype == 3)
+			e->xs = x;
+	}
 	return (1);
 }
 
@@ -68,7 +71,6 @@ int		mouse2(int button, int x, int y, t_env *e)
 		e->xtop = e->xtop + ((x1 - e->xtop) / 2);
 		e->ybot = y1 + ((e->ybot - y1) / 2);
 		e->ytop = e->ytop + ((y1 - e->ytop) / 2);
-		e->zoom += 1;
 	}
 	else if (button == 5 || button == 3)
 	{
@@ -76,7 +78,6 @@ int		mouse2(int button, int x, int y, t_env *e)
 		e->xtop = e->xtop + ((e->xtop - e->xbot) / 2);
 		e->ybot = e->ybot - ((e->ytop - e->ybot) / 2);
 		e->ytop = e->ytop + ((e->ytop - e->ybot) / 2);
-		e->zoom -= 1;
 	}
 	expose_hook(e);
 	return (1);

@@ -24,8 +24,8 @@
 # include "libft/libft.h"
 # include <time.h>
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 640
+# define HEIGHT 480
 
 # define ESC 65307
 # define SPACE 32
@@ -55,20 +55,20 @@ typedef struct			s_env
 	void				*mlx;
 	void				*win;
 	t_img				img;
-	int					color;
+	t_vec3				color;
 	int					ftype;
 	int					iter;
 	int					x;
 	int					y;
 	int					theme;
-	int					zoom;
 	double				xbot;
 	double				xtop;
 	double				ybot;
 	double				ytop;
+	double				xori;
+	double				yori;
 	double				xs;
 	double				ys;
-	double				tol;
 }						t_env;
 
 void					init_env(t_env *e, int ac, char **av);
@@ -82,7 +82,7 @@ void					newton(t_env *e);
 void					pixel_put(t_env *e);
 double					scaledx(t_env *e, int x);
 double					scaledy(t_env *e, int y);
-int						palette(t_env *e, int x);
+t_vec3					palette(t_env *e, double x);
 int						expose_hook(t_env *e);
 
 #endif
