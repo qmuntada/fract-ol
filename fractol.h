@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:47:53 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/19 19:00:17 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/24 17:52:36 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ typedef struct			s_env
 	double				xtop;
 	double				ybot;
 	double				ytop;
-	double				xori;
-	double				yori;
+	double				xorir;
+	double				xoril;
 	double				xs;
 	double				ys;
 }						t_env;
@@ -82,7 +82,7 @@ void					newton(t_env *e);
 void					pixel_put(t_env *e);
 double					scaledx(t_env *e, int x);
 double					scaledy(t_env *e, int y);
-t_vec3					palette(t_env *e, double x);
+t_vec3					palette(double x, int theme);
 int						expose_hook(t_env *e);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:43 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/19 18:59:59 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/24 17:53:01 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	init_env(t_env *e, int ac, char **av)
 	e->theme = 0;
 	e->color = (t_vec3){0.0, 0.0, 0.0};
 	init_sval(e);
-	e->xori = e->xbot;
-	e->yori = e->ybot;
+	e->xoril = e->xbot;
+	e->xorir = e->xtop;
 }

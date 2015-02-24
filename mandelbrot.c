@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:59 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/19 19:01:47 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/24 17:28:41 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	calculate_m(t_env *e, double x0, double y0)
 		y2 = y * y;
 	}
 	double sco = i - log2(log2(x2 + y2));
-	i = ft_mix(i, sco, 1.0);
-	e->color = palette(e, i);
+	if (e->theme < 3)
+		i = ft_mix(i, sco, 1.0);
+	e->color = palette(i, (e->theme > 2 ? e->theme - 3 : e->theme));
 	pixel_put(e);
 }
 

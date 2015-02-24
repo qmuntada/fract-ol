@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:47 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:33:48 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/24 17:52:45 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		key_release(int keycode, t_env *e)
 
 int		mouse(int x, int y, t_env *e)
 {
-	if (e->xori <= e->xbot && e->yori <= e->ybot)
+	if (e->xoril <= e->xbot && e->xorir <= e->xtop)
 	{
 		e->xs = scaledx(e, x);
 		e->ys = scaledy(e, y);

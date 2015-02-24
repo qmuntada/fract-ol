@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:34:05 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/01/16 16:44:28 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/02/24 17:28:54 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	calculate_n(t_env *e, double x0, double y0)
 		if (x0 * x0 + y0 * y0 < (e->xs / e->img.width))
 			i2 = i;
 	}
-	e->color = palette(e, i2);
+	e->color = palette(i2, (e->theme > 2 ? e->theme - 3 : e->theme));
 	pixel_put(e);
 }
 
