@@ -6,15 +6,13 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:47:53 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/24 17:52:36 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/04/24 18:42:43 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <X11/X.h>
-# include <X11/Xlib.h>
 # include <mlx.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -27,17 +25,17 @@
 # define WIDTH 640
 # define HEIGHT 480
 
-# define ESC 65307
-# define SPACE 32
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define T 116
-# define LEFT 65361
-# define RIGHT 65363
-# define UP 65362
-# define DOWN 65364
+# define ESC 53
+# define SPACE 49
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define T 17
+# define LEFT 123
+# define RIGHT 124
+# define UP 126
+# define DOWN 125
 
 typedef struct			s_img
 {
@@ -72,10 +70,9 @@ typedef struct			s_env
 }						t_env;
 
 void					init_env(t_env *e, int ac, char **av);
-int						mouse(int x, int y, t_env *e);
-int						mouse2(int button, int x, int y, t_env *e);
+int						mouse(int button, int x, int y, t_env *e);
+int						mouse2(int x, int y, t_env *e);
 int						key_press(int keycode, t_env *e);
-int						key_release(int keycode, t_env *e);
 void					mandelbrot(t_env *e);
 void					julia(t_env *e);
 void					newton(t_env *e);

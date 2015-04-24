@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:47 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/24 17:52:45 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/04/24 18:45:37 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int		key_press(int keycode, t_env *e)
 {
 	double	tmp;
 
+	if (keycode == ESC)
+	{
+		mlx_destroy_window(e->mlx, e->win);
+		exit(EXIT_SUCCESS);
+	}
 	if (keycode == T)
 		e->theme += (e->theme == 5 ? -5 : 1);
 	else if (keycode == UP || keycode == DOWN)
@@ -36,18 +41,9 @@ int		key_press(int keycode, t_env *e)
 	return (1);
 }
 
-int		key_release(int keycode, t_env *e)
+int		mouse2(int x, int y, t_env *e)
 {
-	if (keycode == ESC)
-	{
-		mlx_destroy_window(e->mlx, e->win);
-		exit(EXIT_SUCCESS);
-	}
-	return (1);
-}
-
-int		mouse(int x, int y, t_env *e)
-{
+	printf("%d %d\n", x, y);
 	if (e->xoril <= e->xbot && e->xorir <= e->xtop)
 	{
 		e->xs = scaledx(e, x);
@@ -58,21 +54,21 @@ int		mouse(int x, int y, t_env *e)
 	return (1);
 }
 
-int		mouse2(int button, int x, int y, t_env *e)
+int		mouse(int button, int x, int y, t_env *e)
 {
 	double		x1;
 	double		y1;
 
 	x1 = scaledx(e, x);
 	y1 = scaledy(e, y);
-	if (button == 4 || button == 1)
+	if (button == 1 || button == 4)
 	{
 		e->xbot = x1 + ((e->xbot - x1) / 2);
 		e->xtop = e->xtop + ((x1 - e->xtop) / 2);
 		e->ybot = y1 + ((e->ybot - y1) / 2);
 		e->ytop = e->ytop + ((y1 - e->ytop) / 2);
 	}
-	else if (button == 5 || button == 3)
+	else if (button == 2 || button == 5)
 	{
 		e->xbot = e->xbot - ((e->xtop - e->xbot) / 2);
 		e->xtop = e->xtop + ((e->xtop - e->xbot) / 2);
