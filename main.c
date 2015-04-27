@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:55 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/04/24 20:15:24 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/04/27 17:13:23 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(int ac, char **av)
 	init_env(&e, ac, av);
 	mlx_key_hook(e.win, key_press, &e);
 	mlx_mouse_hook(e.win, mouse, &e);
-	mlx_hook(e.win, 1, (1L<<8), &mouse2, &e);
+	mlx_hook(e.win, 6, 64, &mouse2, &e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_loop(e.mlx);
 	return (1);

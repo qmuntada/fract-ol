@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:47 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/04/24 18:45:37 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/04/27 17:15:40 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,11 @@ int		key_press(int keycode, t_env *e)
 
 int		mouse2(int x, int y, t_env *e)
 {
-	printf("%d %d\n", x, y);
-	if (e->xoril <= e->xbot && e->xorir <= e->xtop)
-	{
-		e->xs = scaledx(e, x);
-		e->ys = scaledy(e, y);
-		if (e->ftype == 3)
-			e->xs = x;
-	}
+	e->xs = scaledx(e, x);
+	e->ys = scaledy(e, y);
+	if (e->ftype == 3)
+		e->xs = x;
+	expose_hook(e);
 	return (1);
 }
 

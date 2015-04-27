@@ -6,7 +6,7 @@
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/16 16:33:59 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/24 17:28:41 by qmuntada         ###   ########.fr       */
+/*   Updated: 2015/04/27 17:19:32 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	calculate_m(t_env *e, double x0, double y0)
 {
-	double		x;
-	double		y;
-	double		x2;
-	double		y2;
-	double		i;
+	double	x;
+	double	y;
+	double	x2;
+	double	y2;
+	double	i;
 
 	x = 0.0;
 	y = 0.0;
-	x2 = 0.0;
-	y2 = 0.0;
+	x2 = e->xs;
+	y2 = e->ys;
 	i = -1.0;
 	while (++i < e->iter && (x2 + y2) < e->iter)
 	{
@@ -32,9 +32,8 @@ void	calculate_m(t_env *e, double x0, double y0)
 		x2 = x * x;
 		y2 = y * y;
 	}
-	double sco = i - log2(log2(x2 + y2));
 	if (e->theme < 3)
-		i = ft_mix(i, sco, 1.0);
+		i = ft_mix(i, i - log2(log2(x2 + y2)), 1.0);
 	e->color = palette(i, (e->theme > 2 ? e->theme - 3 : e->theme));
 	pixel_put(e);
 }

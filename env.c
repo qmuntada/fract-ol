@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmuntada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/16 16:33:43 by qmuntada          #+#    #+#             */
-/*   Updated: 2015/02/24 17:53:01 by qmuntada         ###   ########.fr       */
+/*   Created: 2015/04/27 17:18:17 by qmuntada          #+#    #+#             */
+/*   Updated: 2015/04/27 17:30:22 by qmuntada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	error_arg(int n)
 {
 	if (n == 0)
-		ft_putstr_fd("No paramater found\n", 2);
+		ft_putstr_fd("No paramater found\n\n", 2);
 	else
 		ft_putstr_fd("Incorrect paramater\n", 2);
-	ft_putstr_fd("Please reboot this program with one", 2);
+	ft_putstr_fd("FRACT'OL : Please reboot this program with one", 2);
 	ft_putstr_fd(" of the following parameter :\n", 2);
 	ft_putstr_fd("M for Mandelbrot\nJ for Julia\nN for Newton\n", 2);
 	exit(EXIT_FAILURE);
@@ -66,6 +66,8 @@ void	init_sval(t_env *e)
 
 void	init_env(t_env *e, int ac, char **av)
 {
+	t_vec3	normedemerde;
+
 	e->ftype = frac_type(ac, av);
 	e->img.width = WIDTH;
 	e->img.height = HEIGHT;
@@ -78,7 +80,8 @@ void	init_env(t_env *e, int ac, char **av)
 	e->ys = 0;
 	e->iter = 50;
 	e->theme = 0;
-	e->color = (t_vec3){0.0, 0.0, 0.0};
+	normedemerde = (t_vec3){0.0, 0.0, 0.0};
+	e->color = normedemerde;
 	init_sval(e);
 	e->xoril = e->xbot;
 	e->xorir = e->xtop;
